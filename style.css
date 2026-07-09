@@ -123,6 +123,7 @@ section {
     background-color: #f4f4f4;
     height: 400px;
     width: 100%;
+    object-fit: cover;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
@@ -130,6 +131,7 @@ section {
     color: #bbbbbb;
     font-size: 0.9rem;
     border: 1px solid #eaeaea;
+    overflow: hidden;
 }
 
 .project-info h3 {
