@@ -117,6 +117,30 @@
             <a href="mailto:tu-email@correo.com" class="email-link">tu-email@correo.com</a>
         </div>
     </footer>
+<!-- Script para los filtros de proyectos -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
 
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover estado activo de todos los botones
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Agregar estado activo al botón clickeado
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Mostrar u ocultar proyectos según la categoría
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
