@@ -45,8 +45,7 @@
         </div>
 
         <div class="projects-grid">
-            <!-- Proyecto 1 -->
-            <article class="project-card" data-category="institutional">
+            <article class="project-card" data-category="institutional" data-images="assets/botanical-center.jpg">
                 <div class="project-image">
                     <img src="assets/botanical-center.jpg" alt="Centro de Investigación Botánica">
                 </div>
@@ -56,8 +55,7 @@
                 </div>
             </article>
 
-            <!-- Proyecto 2 -->
-            <article class="project-card" data-category="residential">
+            <article class="project-card" data-category="residential" data-images="assets/refugio-ita.jpg">
                 <div class="project-image">
                     <img src="assets/refugio-ita.jpg" alt="Refugio Itá">
                 </div>
@@ -67,8 +65,7 @@
                 </div>
             </article>
 
-            <!-- Proyecto 3 -->
-            <article class="project-card" data-category="institutional">
+            <article class="project-card" data-category="institutional" data-images="assets/rural-school.jpg">
                 <div class="project-image">
                     <img src="assets/rural-school.jpg" alt="Escuela Rural">
                 </div>
@@ -78,8 +75,7 @@
                 </div>
             </article>
 
-            <!-- Proyecto 4 -->
-            <article class="project-card" data-category="residential">
+            <article class="project-card" data-category="residential" data-images="assets/maluf-house.jpg">
                 <div class="project-image">
                     <img src="assets/maluf-house.jpg" alt="Casa Maluf Interiorismo">
                 </div>
@@ -91,7 +87,6 @@
         </div>
     </section>
 
-    <!-- Sobre Mí breve -->
     <section id="sobre-mi" class="about-section">
         <div class="about-grid">
             <div class="about-text">
@@ -109,7 +104,6 @@
         </div>
     </section>
 
-    <!-- Contacto -->
     <footer id="contacto">
         <div class="contact-container">
             <h2>Hablemos.</h2>
@@ -117,21 +111,27 @@
             <a href="mailto:tu-email@correo.com" class="email-link">tu-email@correo.com</a>
         </div>
     </footer>
-<!-- Script para los filtros de proyectos -->
+
+    <div id="lightbox-modal" class="modal-viewer">
+        <span class="close-modal">&times;</span>
+        <button class="modal-nav prev-btn">&#8249;</button>
+        <div class="modal-content">
+            <img id="lightbox-img" src="" alt="Vista ampliada">
+        </div>
+        <button class="modal-nav next-btn">&#8250;</button>
+    </div>
+
     <script>
+        // Lógica de los filtros de la grilla
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remover estado activo de todos los botones
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Agregar estado activo al botón clickeado
                 btn.classList.add('active');
-
                 const filterValue = btn.getAttribute('data-filter');
 
-                // Mostrar u ocultar proyectos según la categoría
                 projectCards.forEach(card => {
                     if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                         card.style.display = 'block';
@@ -140,6 +140,75 @@
                     }
                 });
             });
+        });
+
+        // Lógica del Visualizador de Imágenes Completa
+        const modal = document.getElementById('lightbox-modal');
+        const modalImg = document.getElementById('lightbox-img');
+        const closeModal = document.querySelector('.close-modal');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        projectCards.forEach(card => {
+            const imgContainer = card.querySelector('.project-image');
+            imgContainer.addEventListener('click', (e) => {
+                const imagesAttr = card.getAttribute('data-images');
+                if (imagesAttr) {
+                    currentImages = imagesAttr.split(',');
+                    currentImgIndex = 0;
+                    openLightbox();
+                }
+            });
+        });
+
+        function openLightbox() {
+            modal.style.display = 'flex';
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            modalImg.src = currentImages[currentImgIndex];
+            if (currentImages.length <= 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+            }
+        }
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target === document.querySelector('.modal-content')) {
+                modal.style.display = 'none';
+            }
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+            updateModalImage();
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+        });
+
+        // Controles físicos del teclado (Flechas y Escape)
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'ArrowRight' && currentImages.length > 1) currentImgIndex = (currentImgIndex + 1) % currentImages.length; updateModalImage();
+                if (e.key === 'ArrowLeft' && currentImages.length > 1) currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length; updateModalImage();
+                if (e.key === 'Escape') modal.style.display = 'none';
+            }
         });
     </script>
 </body>
