@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentín Escalada | Arquitectura</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tipografía limpia y geométrica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navegación Minimalista -->
+    <header>
+        <div class="logo">VALENTÍN ESCALADA</div>
+        <nav>
+            <a href="#proyectos" class="nav-link">Proyectos</a>
+            <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Junior Architect</h1>
+            <p class="hero-statement">
+                Creación de soluciones arquitectónicas claras con especial atención al contexto, la materialidad y la funcionalidad.
+            </p>
+        </div>
+        <div class="scroll-indicator">↓ Scroll</div>
+    </section>
+
+    <!-- Grilla de Proyectos Interactiva -->
+    <section id="proyectos" class="projects-section">
+        <h2 class="section-title">Proyectos Seleccionados</h2>
+        
+        <!-- Filtros interactivos (Se programan con JS) -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="residential">Residencial</button>
+            <button class="filter-btn" data-filter="institutional">Público / Institucional</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Proyecto 1 -->
+            <article class="project-card" data-category="institutional">
+                <div class="project-image">
+                    <img src="assets/botanical-center.jpg" alt="Centro de Investigación Botánica">
+                </div>
+                <div class="project-info">
+                    <h3>Centro de Investigación Botánica</h3>
+                    <p>San Ignacio, Misiones — 2025</p>
+                </div>
+            </article>
+
+            <!-- Proyecto 2 -->
+            <article class="project-card" data-category="residential">
+                <div class="project-image">
+                    <img src="assets/refugio-ita.jpg" alt="Refugio Itá">
+                </div>
+                <div class="project-info">
+                    <h3>Refugio "Itá"</h3>
+                    <p>Posadas, Misiones — 2020</p>
+                </div>
+            </article>
+
+            <!-- Proyecto 3 -->
+            <article class="project-card" data-category="institutional">
+                <div class="project-image">
+                    <img src="assets/rural-school.jpg" alt="Escuela Rural">
+                </div>
+                <div class="project-info">
+                    <h3>Escuela Rural Comunidad Guaraní</h3>
+                    <p>San Ignacio, Misiones — 2026</p>
+                </div>
+            </article>
+
+            <!-- Proyecto 4 -->
+            <article class="project-card" data-category="residential">
+                <div class="project-image">
+                    <img src="assets/maluf-house.jpg" alt="Casa Maluf Interiorismo">
+                </div>
+                <div class="project-info">
+                    <h3>Casa Maluf (Interiorismo)</h3>
+                    <p>Paraguay — 2026</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Sobre Mí breve -->
+    <section id="sobre-mi" class="about-section">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Sobre Mí</h2>
+                <p>Arquitecto enfocado en el desarrollo técnico, la modelación 3D y la exploración de materialidades locales y sustentables. Experiencia en diseño residencial, documentación ejecutiva e interiorismo.</p>
+            </div>
+            <div class="software-skills">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li>AutoCAD / Revit</li>
+                    <li>SketchUp / Twinmotion</li>
+                    <li>Adobe Illustrator / Photoshop</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <footer id="contacto">
+        <div class="contact-container">
+            <h2>Hablemos.</h2>
+            <p>Disponible para colaboraciones y proyectos remotos.</p>
+            <a href="mailto:tu-email@correo.com" class="email-link">tu-email@correo.com</a>
+        </div>
+    </footer>
+
+</body>
+</html>
