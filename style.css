@@ -1,0 +1,203 @@
+/* Reset básico y tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+/* Navegación */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav .nav-link {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #888888;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav .nav-link:hover {
+    color: #111111;
+}
+
+/* Hero Section (Inicio) */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-statement {
+    font-size: 1.2rem;
+    color: #666666;
+    max-width: 600px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #aaaaaa;
+}
+
+/* Secciones Generales */
+section {
+    padding: 6rem 4rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+/* Grilla de Proyectos */
+.filters {
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    color: #888;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    background-color: #f4f4f4;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    border: 1px solid #eaeaea;
+}
+
+.project-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: #777777;
+    margin-top: 0.2rem;
+}
+
+/* Sobre Mí */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.software-skills h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.software-skills ul {
+    list-style: none;
+}
+
+.software-skills li {
+    margin-bottom: 0.5rem;
+    color: #555555;
+}
+
+/* Footer / Contacto */
+footer {
+    padding: 8rem 4rem;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    color: #666666;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #111111;
+    text-decoration: none;
+    border-bottom: 1px solid #111111;
+    padding-bottom: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.email-link:hover {
+    opacity: 0.6;
+}
